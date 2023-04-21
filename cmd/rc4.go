@@ -1,9 +1,20 @@
 package cmd
 
-import "encoding/hex"
+import (
+	"encoding/hex"
+	"io/ioutil"
+)
 
 func String_to_byte(str string) []byte {
 	return []byte(str)
+}
+
+func ReadFile(filepath string) ([]byte, error) {
+	bytes, err := ioutil.ReadFile(filepath)
+	if err != nil {
+		return nil, err
+	}
+	return bytes, nil
 }
 
 // RC4加密函数
